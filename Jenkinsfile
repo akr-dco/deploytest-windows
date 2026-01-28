@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['ssh-jenkinsprod']) {
                     sh '''
-                    scp -r * administrator@192.168.192.212:C:/cicd/test-deploy-windows/
+                    scp -r DINAS_DOKUMEN administrator@192.168.192.212:C:/cicd/test-deploy-windows/
                     '''
                 }
             }
