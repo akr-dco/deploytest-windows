@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('Prepare Target Folder') {
+        stage('Prepare Folder') {
             steps {
                 sshagent(credentials: ['ssh-jenkinsprod']) {
                     sh '''
@@ -19,11 +19,11 @@ pipeline {
             }
         }
 
-        stage('Deploy to Windows Server') {
+        stage('Deploy') {
             steps {
                 sshagent(credentials: ['ssh-jenkinsprod']) {
                     sh '''
-                    scp -r * administrator@192.168.192.212:/c/cicd/test-deploy-windows/
+                    scp -r * administrator@192.168.192.212:C:/cicd/test-deploy-windows/
                     '''
                 }
             }
