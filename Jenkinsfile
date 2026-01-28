@@ -13,8 +13,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['ssh-jenkinsprod']) {
                     sh '''
-                    rsync -av --delete ./ \
-                    administrator@192.168.192.212:/c/cicd/test-deploy-windows/
+                    scp -r ./ administrator@192.168.192.212:/c/cicd/test-deploy-windows/
                     '''
                 }
             }
